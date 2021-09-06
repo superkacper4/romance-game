@@ -1,0 +1,73 @@
+{
+    "extends": [
+        "airbnb",
+        "prettier",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": [
+        "react"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "env": {
+        "jest": true
+    },
+    "globals": {
+        "window": true,
+        "document": true
+    },
+    "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "import/prefer-default-export": 0,
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "no-param-reassign": 0,
+        "react/prop-types": 0,
+        "no-use-before-define": "off",
+        "react/destructuring-assignment": 0,
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    "ts",
+                    "tsx"
+                ]
+            }
+        ],
+        "react/jsx-props-no-spreading": [
+            1,
+            {
+                "html": "enforce",
+                "custom": "ignore",
+                "explicitSpread": "enforce"
+            }
+        ]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": [
+                    "./src"
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
+            }
+        }
+    }
+}
