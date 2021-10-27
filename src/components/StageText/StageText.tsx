@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { StyledButton } from './StageText.css';
 import { hollywoodStory } from '../../assets/hollywoodStory';
+import Stage from '../Stage';
+
+interface ArrayTypes {
+    answer: string;
+    nextId: string;
+}
+interface Types {
+    id: string;
+    dialog: string;
+    stage: string;
+    answers: Array<ArrayTypes>;
+}
 
 const StageText = () => {
-    interface ArrayTypes {
-        answer: string;
-        nextId: string;
-    }
-    interface Types {
-        id: string;
-        dialog: string;
-        answers: Array<ArrayTypes>;
-    }
-
     const [dialogId, setDialogId] = useState('1.1.1');
     const [chapterId, setChapterId] = useState('1.1');
     const [displays, setDisplays] = useState<Types>()
@@ -33,10 +35,16 @@ const StageText = () => {
 
     return (
         <main>
-            {displays?.dialog}
-            {displays?.answers.map((ans) => (
-                <StyledButton value={ans.nextId} onClick={e => handleClick(e)}> {ans.answer} </StyledButton>
-            ))}
+            <Stage stage={displays?.stage || ''} />
+            <h3>
+                {displays?.dialog}
+            </h3>
+
+            <p>
+                {displays?.answers.map((ans) => (
+                    <StyledButton value={ans.nextId} onClick={e => handleClick(e)}> {ans.answer} </StyledButton>
+                ))}
+            </p>
         </main>
     )
 }
